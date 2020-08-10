@@ -16,7 +16,7 @@ class CategoryLatihan extends StatefulWidget {
 
 class _CategoryLatihanState extends State<CategoryLatihan> {
   LatihanModel latihanModel;
-  var url = "http://192.168.43.231/api_education_app/get_pdf.php";
+  var url = "https://karangtarunacln.000webhostapp.com/get_pdf.php";
   Future<void> getData() async {
     var res = await http.get(url);
     var decodeJson = jsonDecode(res.body);
@@ -38,6 +38,7 @@ class _CategoryLatihanState extends State<CategoryLatihan> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -101,7 +102,9 @@ class _CategoryLatihanState extends State<CategoryLatihan> {
                                       MaterialPageRoute(
                                         builder: (BuildContext context) =>
                                             DetailLatihan(
-                                                latihanModel.pdf[index].link,
+                                                "https://karangtarunacln.000webhostapp.com/pdf/" +
+                                                    latihanModel
+                                                        .pdf[index].link,
                                                 latihanModel
                                                     .pdf[index].kategori),
                                       ),
@@ -125,6 +128,8 @@ class _CategoryLatihanState extends State<CategoryLatihan> {
                                                   color: Colors.white,
                                                   fontWeight: FontWeight.w500,
                                                   fontSize: 14),
+                                              maxLines: 2,
+                                              overflow: TextOverflow.ellipsis,
                                             ),
                                           ),
                                           Align(
@@ -177,7 +182,8 @@ class _CategoryLatihanState extends State<CategoryLatihan> {
                     context,
                     MaterialPageRoute(
                       builder: (BuildContext context) => DetailLatihan(
-                          latihanModel.pdf[0].link,
+                          "https://karangtarunacln.000webhostapp.com/pdf/" +
+                              latihanModel.pdf[0].link,
                           latihanModel.pdf[0].kategori),
                     ),
                   ),

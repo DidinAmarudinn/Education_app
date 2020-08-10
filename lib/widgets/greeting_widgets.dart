@@ -56,7 +56,7 @@ class _GreetingWidgetsState extends State<GreetingWidgets> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  "Hello,",
+                  "Selamat Datang,",
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 28,
@@ -68,7 +68,7 @@ class _GreetingWidgetsState extends State<GreetingWidgets> {
                 name == null
                     ? Text("noname")
                     : Text(
-                        name.toUpperCase(),
+                        name.toLowerCase(),
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 25,
